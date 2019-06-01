@@ -114,6 +114,7 @@ graduates.forEach(uniFind)
 console.log(uni);
 
 
+
 // ==== ADVANCED Array Methods ====
 
 // Given this zoo data from around the United States, follow the instructions below.  Use the specific array methods in the requests below to solve the problems.
@@ -136,6 +137,12 @@ The zoo wants to display both the scientific name and the animal name in front o
 
 */
 const animalNames = [];
+
+function firstScience(arry){
+  animalNames.push(`Name: ${arry.animal_name} Scientific: ${arry.scientific_name}`)
+}
+
+zooAnimals.forEach(firstScience)
 console.log(animalNames);
 
 /* Request 2: .map()    
@@ -145,6 +152,12 @@ The zoos need a list of all their animal's names (names only, not scientific) co
 */
 
 const lowerCase = [];
+
+function getLow(arry){
+  lowerCase.push(arry.animal_name.toLowerCase())
+}
+
+zooAnimals.map(getLow)
 console.log(lowerCase); 
 
 /* Request 3: .filter() 
@@ -153,6 +166,14 @@ The zoos are concenred about animals with a lower population count. Find out whi
 
 */
 const lowerPopulation = [];
+
+function howMany(arry){
+  if(arry.population < 5){
+    lowerPopulation.push(`the ${arry.animal_name} has a population of ${arry.population}`)
+  }
+}
+
+zooAnimals.filter(howMany)
 console.log(lowerPopulation);
 
 /* Request 4: .reduce() 
@@ -161,6 +182,12 @@ The zoos need to know their total animal population across the United States.  F
 
 */
 const populationTotal = 0;
+
+function thatPop(total, arry){
+  return (total + arry.population)
+}
+
+zooAnimals.reduce(thatPop)
 console.log(populationTotal);
 
 
